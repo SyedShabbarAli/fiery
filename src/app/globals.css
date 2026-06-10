@@ -23,15 +23,14 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 56px;
+  scroll-padding-top: 60px;
 }
 
 body {
   background: #0a0a0a;
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 /* Hide scrollbar for category nav */
