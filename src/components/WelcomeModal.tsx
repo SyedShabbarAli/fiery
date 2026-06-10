@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const branches = [
   { id: "paf-market", name: "PAF Market", address: "Sarfaraz Rafique Road, Lahore Cantt." },
@@ -12,19 +12,17 @@ export default function WelcomeModal() {
   const [orderType, setOrderType] = useState<"delivery" | "pickup">("delivery");
   const [branch, setBranch] = useState(branches[0].id);
 
-  useEffect(() => {
-    if (open) {
-      document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
-    }
-    return () => document.body.classList.remove("no-scroll");
-  }, [open]);
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center animate-fadeIn">
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center animate-fadeIn"
+      style={{ touchAction: "none" }}
+    >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/85" />
 
@@ -98,7 +96,7 @@ export default function WelcomeModal() {
               <select
                 value={branch}
                 onChange={(e) => setBranch(e.target.value)}
-                className="w-full appearance-none bg-[#1a1a1a] border border-[#333] rounded-xl px-4 py-2.5 text-sm text-white/80 focus:border-[#ff9700] transition-colors cursor-pointer"
+                className="w-full appearance-none bg-[#1a1a1a] border border-[#333] rounded-xl px-4 py-2.5 text-sm text-white/80 focus:border-[#ff9700] transition-colors cursor-pointer outline-none"
               >
                 {branches.map((b) => (
                   <option key={b.id} value={b.id} className="bg-[#1a1a1a]">
@@ -112,8 +110,8 @@ export default function WelcomeModal() {
 
           {/* Select Button */}
           <button
-            onClick={() => setOpen(false)}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-[#ff9700] to-[#ff3d00] text-white font-bold text-sm tracking-wide hover:opacity-90 transition-opacity"
+            onClick={handleClose}
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-[#ff9700] to-[#ff3d00] text-white font-bold text-sm tracking-wide hover:opacity-90 active:scale-[0.98] transition-opacity"
           >
             Start Ordering
           </button>

@@ -9,11 +9,11 @@ export default function CartSidebar() {
 
   useEffect(() => {
     if (isCartOpen) {
-      document.body.classList.add("no-scroll");
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.classList.remove("no-scroll");
+      document.body.style.overflow = "";
     }
-    return () => document.body.classList.remove("no-scroll");
+    return () => { document.body.style.overflow = ""; };
   }, [isCartOpen]);
 
   const handleWhatsApp = () => {

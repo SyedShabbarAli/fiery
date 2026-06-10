@@ -105,7 +105,4 @@ body {
   outline-offset: 2px;
 }
 
-/* Body no scroll when modal open */
-body.no-scroll {
-  overflow: hidden;
-}
+/* No scroll utility - applied via inline style, not class */

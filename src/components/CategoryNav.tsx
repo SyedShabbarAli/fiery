@@ -54,7 +54,7 @@ export default function CategoryNav() {
       ref={navRef}
       className="sticky top-0 z-50 overflow-x-auto bg-[#0a0a0a] border-b border-[#1a1a1a] scrollbar-hide"
     >
-      <div className="flex gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 min-w-max">
+      <div className="flex justify-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 min-w-max mx-auto">
         {menuData.map((cat) => (
           <button
             key={cat.id}

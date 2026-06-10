@@ -22,8 +22,8 @@ export default function ProductModal({ item, hasMeal, onClose }: ProductModalPro
   const total = unitPrice * qty;
 
   useEffect(() => {
-    document.body.classList.add("no-scroll");
-    return () => document.body.classList.remove("no-scroll");
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = ""; };
   }, []);
 
   const handleAdd = useCallback(() => {
