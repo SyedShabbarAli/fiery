@@ -19,16 +19,23 @@ export default function Home() {
       <Embers />
 
       {/* Top Info Bar */}
-      <div className="bg-[#050505] border-b border-[#1a1a1a] py-2 sm:py-2.5 text-[0.65rem] sm:text-xs text-[#7a7a7a] relative z-[1]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center gap-3 flex-wrap">
+      <div className="bg-gradient-to-r from-[#ff9700]/10 via-[#050505] to-[#ff3d00]/10 border-b border-[#1a1a1a] py-1.5 sm:py-2 text-[0.6rem] sm:text-[0.7rem] text-[#999] relative z-[1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center gap-4">
           <span className="flex items-center gap-1.5">
-            <i className="fas fa-clock text-[#ff9700] text-[0.6rem] sm:text-[0.7rem]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
             Open Daily: 12:00 PM - 3:00 AM
           </span>
-          <span className="hidden sm:flex items-center gap-1.5">
-            <i className="fas fa-phone text-[#ff9700] text-[0.7rem]" />
-            0311-1134379
-          </span>
+          <div className="hidden sm:flex items-center gap-4">
+            <span className="flex items-center gap-1.5">
+              <i className="fas fa-phone text-[#ff9700] text-[0.6rem]" />
+              0311-1134379
+            </span>
+            <span className="text-white/10">|</span>
+            <span className="flex items-center gap-1.5">
+              <i className="fas fa-map-marker-alt text-[#ff9700] text-[0.6rem]" />
+              Lahore, Pakistan
+            </span>
+          </div>
         </div>
       </div>
 
