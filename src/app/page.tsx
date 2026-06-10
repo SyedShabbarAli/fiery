@@ -1,65 +1,85 @@
-import Image from "next/image";
+"use client";
+
+import { menuData } from "@/data/menu";
+import WelcomeModal from "@/components/WelcomeModal";
+import Embers from "@/components/Embers";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import OrderTypeBar from "@/components/OrderTypeBar";
+import CategoryNav from "@/components/CategoryNav";
+import MenuSection from "@/components/MenuSection";
+import CartSidebar from "@/components/CartSidebar";
+import FloatingCart from "@/components/FloatingCart";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <WelcomeModal />
+      <Embers />
+
+      {/* Top Info Bar */}
+      <div className="bg-[#050505] border-b border-[#1a1a1a] py-2 sm:py-2.5 text-[0.65rem] sm:text-xs text-[#7a7a7a] relative z-[1]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex justify-center sm:justify-between items-center gap-3 flex-wrap">
+          <span className="flex items-center gap-1.5">
+            <i className="fas fa-clock text-[#ff9700] text-[0.6rem] sm:text-[0.7rem]" />
+            Open Daily: 12:00 PM - 3:00 AM
+          </span>
+          <span className="hidden sm:flex items-center gap-1.5">
+            <i className="fas fa-phone text-[#ff9700] text-[0.7rem]" />
+            0311-1134379
+          </span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      <Navbar />
+      <Hero />
+      <OrderTypeBar />
+      <CategoryNav />
+
+      {/* Menu */}
+      <main id="menu" className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-28 sm:pb-20 relative z-[1]">
+        {menuData.map((category) => (
+          <MenuSection key={category.id} category={category} />
+        ))}
+
+        {/* Spice Guide */}
+        <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center sm:items-stretch flex-wrap p-4 sm:p-6 bg-[#141414] rounded-2xl border border-[#222]">
+          <div className="flex items-center gap-2.5 text-xs sm:text-sm text-[#d0d0d0]">
+            <span className="px-3 sm:px-4 py-1 rounded-full text-[0.65rem] sm:text-xs font-bold tracking-wider bg-green-500/10 text-green-400 border border-green-500/40">
+              MILD
+            </span>
+            Soft Savory Blend
+          </div>
+          <div className="flex items-center gap-2.5 text-xs sm:text-sm text-[#d0d0d0]">
+            <span className="px-3 sm:px-4 py-1 rounded-full text-[0.65rem] sm:text-xs font-bold tracking-wider bg-orange-500/10 text-[#ffb740] border border-orange-500/40">
+              SPICY
+            </span>
+            Bold Heat Kick
+          </div>
+          <div className="flex items-center gap-2.5 text-xs sm:text-sm text-[#d0d0d0]">
+            <span className="px-3 sm:px-4 py-1 rounded-full text-[0.65rem] sm:text-xs font-bold tracking-wider bg-red-500/10 text-[#ff6e40] border border-red-500/40">
+              FIERY
+            </span>
+            Spicy Zesty Tangy
+          </div>
         </div>
       </main>
-    </div>
+
+      <Footer />
+      <CartSidebar />
+      <FloatingCart />
+
+      {/* WhatsApp Float */}
+      <a
+        href="https://wa.me/923111134379"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="fixed bottom-20 sm:bottom-24 right-4 sm:right-7 w-12 h-12 sm:w-[56px] sm:h-[56px] bg-[#25d366] rounded-full flex items-center justify-center text-white text-2xl sm:text-3xl z-[999] shadow-[0_4px_24px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform"
+      >
+        <i className="fab fa-whatsapp" />
+      </a>
+    </>
   );
 }
